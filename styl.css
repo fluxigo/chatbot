@@ -1,0 +1,457 @@
+   .chat-container {
+    position: fixed;
+    bottom: 430px;
+    font-family: 'poppins' !important;
+    display: flex
+;
+    top: 50% !important;
+    right: 0 !important;
+    transform: translateY(-50%) !important;
+    z-index: 1000 !important;
+    width: 365px !important;
+    line-height: 1.5 !important;
+}
+
+  .text-launcher {
+    margin-top: 30px !important;
+  }
+
+.text-launch {
+    box-shadow: -2px 2px 10px rgba(60, 60, 60, .6);
+    background-color: #fff !important;
+    border-radius: .625rem !important;
+    font-size: 15px !important;
+    font-weight: 400;
+    margin: 0 10px;
+    max-width: 300px;
+    overflow: visible !important;
+    padding: 0px 10px;
+    position: relative;
+    text-overflow: ellipsis;
+    white-space: normal;
+    align-items: center;
+    cursor: pointer;
+    display: flex
+;
+    flex-direction: row-reverse;
+    height: 40px;
+}
+
+  .text-launch:after {
+    border: 8px solid;
+    border-color: transparent transparent transparent #fff !important;
+    bottom: auto;
+    content: " ";
+    height: 0;
+    left: auto;
+    position: absolute;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+  }
+
+  .open-tab-link {
+    background-image: url(https://intaker.azureedge.net/new-dashboard/iconsChat/openTabWithShadow.svg);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    bottom: -38px;
+    cursor: pointer;
+    display: inline-block;
+    height: 42px;
+    position: absolute;
+    width: 42px;
+    /* background-color: black; */
+    top: 80px;
+    right: 160px;
+  }
+
+  .video-thumbnail {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    padding: 5px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+  .video-circle {
+    position: relative;
+  /* Important for positioning the green            dot */
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: -2px 2px 8px rgba(60, 60, 60, .6);
+  }
+
+   #thumbnail-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+   .online-dot {
+    position: absolute;
+    bottom: 15px;
+  /* Adjust this value based on where you want               the dot */
+    right: 20px;
+  /* Adjust this value based on where you want               the dot */
+    width: 20px;
+    height: 20px;
+    background-color: #2ECC71;
+    border-radius: 50%;
+    border: 2px solid white;
+  /* Optional: Adds a small white               border around the dot */
+  }
+
+    @media only screen and (max-width: 480px) {
+    .chat-container {
+        top: 80% !important;
+    }
+  
+    .chat-widget {
+        margin-top: -170px !important;
+    }
+  }
+
+  @media (max-width: 430px) {
+  .chat-widget{
+  right: 0px;
+  height: 100vh !important;
+  width: 100% !important;
+    border-radius: 0px;
+    background-color: #fff;
+    position: fixed;
+    right: auto;
+    z-index: 999;
+    overflow: hidden;
+    box-shadow: -5px 5px 8px rgba(60, 60, 60, .6);
+    transform: translateY(0%) !important;
+    border: 0px solid #737373;
+    bottom: 0 !important;
+    top: -1063% !important;
+    
+  }
+
+  .video-background {
+  height: 100vh !important;
+  }
+}
+
+.chat-widget {
+    display: none;
+    height: 600px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: #fff;
+    position: fixed;
+    bottom: 190px;
+    right: 50px;
+    z-index: 999;
+    overflow: hidden;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 350px !important;
+    box-shadow: -5px 5px 8px rgba(60, 60, 60, .6);
+    border: 1px solid #737373;
+    margin-top: 0px !important;
+  }
+
+  .video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 600px;
+    z-index: -1;
+  }
+
+  #background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+  }
+
+  .progress-bar-container {
+    position: absolute;
+    top: 0;
+  /* Position at the top */
+    left: 0;
+    width: 100%;
+    height: 4px;
+  /* Adjust height as desired */
+    background-color: rgba(255, 255, 255, 0.3);
+  /* Background color for the container */
+  }
+
+  .progress-bar {
+    width: 0;
+    height: 100%;
+    background-color: #e6b23d;
+  /* Progress color */
+    transition: width 0.1s linear;
+  /* Smooth transition */
+  }
+
+ .loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: none;
+  /* Hidden by default */
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+  }
+  
+  .loading-content {
+    text-align: center;
+  }
+  
+  .loading-circle {
+    position: relative;
+    width: 120px;
+  /* Adjust size as needed */
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .loading-border {
+    position: absolute;
+    top: 0;
+    left: 30px;
+    width: 100%;
+    height: 100%;
+    border-top: 4px solid #e6b23d;
+  /* Color for the loading animation */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  .loading-logo {
+    width: 70px;
+  /* Adjust as needed */
+    position: relative;
+  /* Ensure logo stays centered */
+  left: 30px;
+  }
+  
+  @keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+  
+    100% {
+        transform: rotate(360deg);
+    }
+  }
+
+    .chat-header {
+    display: flex;
+    justify-content: flex-end;
+    position: sticky;
+    top: 0;
+    align-items: center;
+    z-index: 3;
+    padding: 10px;
+  /* margin-top: 10px !important; */
+    margin-right: -18px !important;
+  }
+
+    .move-video-to-corner #play-pause-btn, .pay-pause-btn {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+  }
+  
+  #play-pause-btn, .pay-pause-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+    margin-right: 15px;
+  }
+
+  img#play-pause-icon.play-option {
+    margin-bottom: -100px;
+    margin-left: 40px;
+  }
+
+    img#refresh-icon,
+  img#play-pause-icon,
+  img#mute-unmute-icon {
+    width: 30px;
+  }
+
+   button#mute-unmute-btn {
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    margin-right: auto;
+    text-align: left;
+  }
+
+   #refresh-btn,
+  #close-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+
+  button#refresh-btn {
+      margin-right: 0px !important;
+  }
+
+  #close-btn {
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    position: relative;
+  }
+
+   img#close-icon {
+    width: 30px;
+  }
+
+  .chat-content {
+    position: relative;
+    z-index: 1;
+  /* padding: 20px; */
+    color: rgb(0, 0, 0);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    box-sizing: border-box;
+  /* margin-bottom: 10px; */
+    padding: 45px 10px 0 15px !important;
+height: 83% !important;
+  }
+
+  .Empty-container {
+    height: 50% !important;
+  }
+
+.message {
+    font-size: 16px;
+    padding: 10px 0px;
+    margin-bottom: 8px;
+    border-radius: 20px;
+    width: fit-content;
+    word-wrap: break-word;
+    position: relative;
+    margin-right: 10px;
+    max-width: 98%;
+  }
+
+  .message.bot-message {
+    color: black;
+    margin-right: auto;
+    text-align: left;
+  }
+
+ .message .ot-message {
+    color: rgb(0, 0, 0) !important;
+    margin-right: auto;
+    text-align: left;
+    padding-left: 5px;
+  }
+
+   .message.user-message {
+      overflow: hidden !important;
+      max-width: 65% !important;
+    background-color: hsla(0, 0%, 100%, 0.85);
+    border: 2px solid #e6b23d;
+    color: black;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .message.ot-message {
+    color: white;
+  }
+
+  .chat-options {
+    display: block;
+    flex-direction: column;
+    max-height: 1100px;
+    overflow-y: initial;
+  }
+
+   .option-btn {
+    text-align: left;
+    background-color: hsla(0, 0%, 100%, 0.85);
+    border: 2px solid #e6b23d;
+    padding: 9px 14px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    width: fit-content;
+    box-sizing: border-box;
+    font-family: 'poppins' !important;
+  }
+
+   #product-options .option-btn:hover, .bef:hover, div#recommender-options .option-btn:hover, .option-btn:hover  {
+      background-color: #e6b23d !important;
+  }
+
+  div#live-chat-options .option-btn, #situation-options .option-btn, .bef, div#recommender-options .option-btn, .option-btn {
+      color: black !important;
+  }
+
+#situation-options .option-btn:hover, div#recommender-options .option-btn:hover, .bef:hover, #live-chat-options .option-btn:hover,
+   #role-options, #state-options, .option-btn:hover, #product-options .option-btn:hover {
+    color: white !important;
+  }
+
+   .footer {
+    height: 7%;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: white !important;
+}
+
+.poweredBox {
+    display: flex !important;
+    align-items: center;
+}
+
+  .powered-style {
+    margin: 0 !important;
+    color: rgba(39, 39, 39, .17);
+}
+
+   .img-powered {
+    width: 100px;
+    height: 20px;
+    margin-top: 7px;
+}
+
+  #white-overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 4;
+  }
